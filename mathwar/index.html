@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Math War</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="rotar">📱 Gira tu celular para jugar</div>
+
+<!-- INICIO -->
+<div id="inicio" class="pantalla fondo-inicio">
+  <div class="panel panel-inicio">
+    <button onclick="mostrar('login')">Iniciar sesión</button>
+    <button onclick="mostrar('crear')">Crear cuenta</button>
+  </div>
+</div>
+
+<!-- LOGIN -->
+<div id="login" class="pantalla fondo-login oculto">
+  <div class="panel">
+    <h2>Iniciar Sesión</h2>
+    <form id="formLogin" onsubmit="event.preventDefault(); entrar();">
+      <input type="email" id="loginGmail" placeholder="Gmail" required>
+      <input type="password" id="loginPassword" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <button onclick="mostrar('inicio')">Volver</button>
+  </div>
+</div>
+
+<!-- CREAR -->
+<div id="crear" class="pantalla fondo-crear oculto">
+  <div class="panel">
+    <h2>Crear Cuenta</h2>
+    <form action="registro.php" method="POST">
+      <input type="email" name="gmail" placeholder="Gmail" required>
+      <input type="text" name="usuario" placeholder="Nombre de usuario" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button type="submit">Crear cuenta</button>
+    </form>
+    <button onclick="mostrar('inicio')">Volver</button>
+  </div>
+</div>
+
+<!-- MENU -->
+<div id="menu" class="pantalla fondo-menu oculto">
+  <div class="topbar">
+    💰 <span id="oro">500</span> | 🏰 Nv <span id="nivel">1</span> | ⚔️ <span id="cantidadGuerreros">0</span>/10
+    <button onclick="logout()">Salir</button>
+  </div>
+  <div class="panel-menu">
+    <button onclick="mostrar('aldea')">🏰 Aldea</button>
+    <button onclick="mostrar('ataque')">⚔️ Atacar</button>
+    <button onclick="mostrar('misiones')">📜 Misiones</button>
+  </div>
+</div>
+
+<!-- ALDEA -->
+<div id="aldea" class="pantalla fondo-aldea oculto">
+  <div class="topbar">
+    💰 <span id="oro2">500</span> | 🏰 Nv <span id="nivel2">1</span> | ⚔️ <span id="cantidadGuerreros2">0</span>/10
+  </div>
+  <div id="base"></div>
+  <div class="panel lado">
+    <button onclick="crearMina()"><img src="imagenes/mina.png" alt=""> Mina</button>
+    <button onclick="crearCanon()"><img src="imagenes/canon.png" alt=""> Cañón</button>
+    <button onclick="crearCuartel()"><img src="imagenes/cuartel.png" alt=""> Cuartel</button>
+    <button onclick="crearGuerrero()"><img src="imagenes/guerrero.png" alt=""> Guerrero</button>
+    <button onclick="mejorar()">⬆ Mejorar</button>
+    <button onclick="mostrar('menu')">Volver</button>
+  </div>
+</div>
+
+<!-- ATAQUE -->
+<div id="ataque" class="pantalla fondo-aldea oculto">
+  <div class="topbar">
+    ⚔️ <span id="ataqueGuerreros">0</span> | 🏠 Enemigos: <span id="enemigosCount">0</span>
+  </div>
+  <div id="mapaEnemigo"></div>
+  <div class="panel lado">
+    <button onclick="iniciarAtaque()">⚔️ Iniciar</button>
+    <button onclick="mostrar('menu')">Volver</button>
+  </div>
+</div>
+
+<!-- MISIONES -->
+<div id="misiones" class="pantalla fondo-misiones oculto">
+  <div class="panel misiones-panel">
+    <h2>📜 Misiones</h2>
+    <div class="mision-item"><span>✔ Suma</span><button onclick="abrirEjercicio('sumas')">Ir</button></div>
+    <div class="mision-item"><span>✔ Resta</span><button onclick="abrirEjercicio('restas')">Ir</button></div>
+    <div class="mision-item"><span>✔ Multiplicación</span><button onclick="abrirEjercicio('mult')">Ir</button></div>
+    <div class="mision-item"><span>✔ División</span><button onclick="abrirEjercicio('div')">Ir</button></div>
+    <button onclick="mostrar('menu')">Volver</button>
+  </div>
+</div>
+
+<!-- EJERCICIOS -->
+<div id="ejercicios" class="pantalla fondo-misiones oculto">
+  <div class="panel">
+    <h2 id="tituloEjercicio">Ejercicio</h2>
+    <h3 id="preguntaEjercicio">2 + 2</h3>
+    <input type="number" id="respuestaEjercicio" placeholder="Respuesta">
+    <button onclick="verificarEjercicio()">Responder</button>
+    <button onclick="mostrar('misiones')">Volver</button>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
