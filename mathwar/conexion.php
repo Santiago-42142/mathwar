@@ -2,7 +2,7 @@
 $conexion = new mysqli(
     "mysql.railway.internal",
     "root",
-    "Sr.AHMBlMZopaSbBgloPQhjfePaYnSFOy",
+    "Sr. AHMBlMZopaSbBgloPQhjfePaYnSFOy",
     "railway",
     3306
 );
