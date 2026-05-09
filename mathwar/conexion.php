@@ -2,7 +2,7 @@
 $conexion = new mysqli(
     "mysql.railway.internal",
     "root",
-    "Sr. AHMBlMZopaSbBgloPQhjfePaYnSFOy",
+    getenv('MYSQL_ROOT_PASSWORD'),
     "railway",
     3306
 );
