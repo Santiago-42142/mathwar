@@ -1,14 +1,13 @@
 <?php
-
 $conexion = new mysqli(
-    "localhost",
+    "mysql.ferrocarril.interno",
     "root",
-    "",
-    "mathwar"
+    "Sr.AHMBlMZopaSbBgloPQhjfePaYnSFOy",
+    "railway",
+    3306
 );
 
-if($conexion->connect_error){
+if ($conexion->connect_error){
     die("Error de conexión");
 }
-
 ?>
